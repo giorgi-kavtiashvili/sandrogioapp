@@ -37,7 +37,6 @@ class RegistrationFragment : Fragment(R.layout.fragment_registration) {
         binding.btReg.setOnClickListener {
             val email=binding.email.text.toString()
             val pass=binding.pass.text.toString()
-
             if (email.isEmpty() || pass.isEmpty()){
                 Toast.makeText(requireContext(), "გთხოვთ შეავსეთ ველებია", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
