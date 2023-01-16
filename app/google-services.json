@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "331440637182",
+    "project_id": "finalapp-747d2",
+    "storage_bucket": "finalapp-747d2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:331440637182:android:2447c8f7ada088dc43d1af",
+        "android_client_info": {
+          "package_name": "com.example.lumaspotify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "331440637182-6sfhq24q5j3q6ufg9380gtsom0gci2m5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDi9F1iPNua9GKVKoWgoICEMIBIg0wyNHo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "331440637182-6sfhq24q5j3q6ufg9380gtsom0gci2m5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
