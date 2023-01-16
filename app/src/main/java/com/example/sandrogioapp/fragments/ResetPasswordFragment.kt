@@ -14,7 +14,7 @@ import com.example.lumaspotify.databinding.FragmentRegistrationBinding
 import com.example.lumaspotify.databinding.FragmentResetpasswordBinding
 import com.google.firebase.auth.FirebaseAuth
 
-class ResetPasswordFragment :  Fragment(R.layout.fragment_resetpassword){
+class ResetPasswordFragment :  Fragment(R.layout.fragment_resetpassword) {
     private lateinit var binding: FragmentResetpasswordBinding
 
 
@@ -33,7 +33,8 @@ class ResetPasswordFragment :  Fragment(R.layout.fragment_resetpassword){
         onClickListener()
         ResetPasswordActivityListeners()
     }
-    private fun ResetPasswordActivityListeners(){
+
+    private fun ResetPasswordActivityListeners() {
         binding.resetBt.setOnClickListener {
             val currentPass = binding.currentPass.text.toString()
             val newPass1 = binding.newPass1.text.toString()
@@ -43,16 +44,24 @@ class ResetPasswordFragment :  Fragment(R.layout.fragment_resetpassword){
                 Toast.makeText(requireContext(), "გთხოვთ შეავსეთ ველები", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             } else if (newPass1 != newPass2) {
-                Toast.makeText(requireContext(), "პაროლები არ ემთხვევა ერთმანეთს", Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    requireContext(),
+                    "პაროლები არ ემთხვევა ერთმანეთს",
+                    Toast.LENGTH_LONG
+                ).show()
                 return@setOnClickListener
             }
             if (newPass1 == newPass2) {
                 FirebaseAuth.getInstance().currentUser?.updatePassword(newPass1)
                     ?.addOnCompleteListener { task ->
-                        if (task.isSuccessful){
+                        if (task.isSuccessful) {
                             startActivity(Intent(requireActivity(), LoginFragment::class.java))
                         } else {
-                            Toast.makeText(requireContext(), "მონაცემები არასწორია", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                requireContext(),
+                                "მონაცემები არასწორია",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
             } else {
@@ -60,10 +69,11 @@ class ResetPasswordFragment :  Fragment(R.layout.fragment_resetpassword){
             }
         }
     }
-}
 
-    fun onClickListener(){
+
+    fun onClickListener() {
         binding.backToPrBt.setOnClickListener {
             findNavController().navigate(ResetPasswordFragmentDirections.actionResetPasswordFragmentToLoginFragment())
         }
     }
+}

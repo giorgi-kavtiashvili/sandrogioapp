@@ -34,11 +34,15 @@ class ForgotPasswordFragment : Fragment(R.layout.fragment_forgotpassword) {
         onClickListener()
     }
 
-    private fun ForgotPasswordActivityListeners(){
+    private fun ForgotPasswordActivityListeners() {
         binding.sendMailBt.setOnClickListener {
             val email = binding.email.text.toString()
             if (email.isEmpty()) {
-                Toast.makeText(requireContext(), "გთხოვთ შეიყვანეთ თქვენი მეილი", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    "გთხოვთ შეიყვანეთ თქვენი მეილი",
+                    Toast.LENGTH_SHORT
+                ).show()
                 return@setOnClickListener
             }
             FirebaseAuth.getInstance().sendPasswordResetEmail(email).addOnCompleteListener { task ->
@@ -46,16 +50,18 @@ class ForgotPasswordFragment : Fragment(R.layout.fragment_forgotpassword) {
                     Toast.makeText(requireContext(), "შეამოწმეთ მეილი", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(requireActivity(), LoginFragment::class.java))
                 } else {
-                    Toast.makeText(requireContext(), "დაფიქსირდა შეცდომა", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "დაფიქსირდა შეცდომა", Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
 
         }
     }
-}
-fun onClickListener() {
-    binding.btBacklog.setOnClickListener {
-        findNavController().navigate(ForgotPasswordFragmentDirections.actionForgotPasswordFragmentToLoginFragment())
+
+    fun onClickListener() {
+        binding.btBacklog.setOnClickListener {
+            findNavController().navigate(ForgotPasswordFragmentDirections.actionForgotPasswordFragmentToLoginFragment())
+        }
     }
 }
 
